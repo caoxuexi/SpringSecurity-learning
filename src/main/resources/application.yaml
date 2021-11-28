@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    com.example: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: '%clr(%d{E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint}
+              %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n'
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: mysql://localhost:3306/qunzhi-db?serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+  security:
+    user:
+      name: user
+      password: $2a$10$FSHyWPZg1f7VKQ/HL/r8E.lhiKY0q47m0zGtGmnivrQlxlguVHh6i
+      roles: USER,ADMIN
+  messages:
+    basename: message
+    encoding: UTF-8
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+
+problemHandling:
+  # 生产模式下要配置为false，ExceptionHandler中用来查看堆栈信息
+  causalChainsEnabled: false

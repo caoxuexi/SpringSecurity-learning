@@ -1,0 +1,41 @@
+@password = 123456
+
+###
+GET http://localhost:8082/api/greeting
+Authorization: Basic user {{password}}
+
+###
+POST http://localhost:8082/api/greeting?name=王五
+Authorization: Basic user {{password}}
+Content-Type: application/json
+
+{
+  "gender": "男",
+  "idNo": "2222323"
+}
+
+###
+POST http://localhost:8082/api/greeting/王五
+Authorization: Basic user {{password}}
+
+###
+POST {{host}}/authorize/register
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "12345655789",
+  "matchPassword":"1233Am&.",
+  "email": "969718359@qq.com",
+  "name":"曹学习"
+}
+
+
+###
+POST {{host}}/authorize/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "123456"
+}
